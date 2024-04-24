@@ -1,8 +1,3 @@
-function toRgba(cssVariable) {
-  const color = `var(${cssVariable})`
-  return ({ opacityValue }) => `rgba(${color}, ${opacityValue})`
-}
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -42,39 +37,37 @@ module.exports = {
       8: 'var(--spacing-2xl) /* 48px */',
       9: 'var(--spacing-4xl) /* 56px */',
     },
-     fontSize: {
-        xs: 'var(--font-xs)',
-        sm: 'var(--font-sm)',
-        md: 'var(--font-md)',
-        lg: 'var(--font-lg)',
-        xl: 'var(--font-xl)',
-      },
+    fontSize: {
+      xs: 'var(--text-xs)',
+      sm: 'var(--text-sm)',
+      md: 'var(--text-md)',
+      lg: 'var(--text-lg)',
+      xl: 'var(--text-xl)',
+    },
     extend: {
       colors: {
-        primary: toRgba('--primary'),
-        secondary: toRgba('--secondary'),
-        tertiary: toRgba('--tertiary'),
-        quaternary: toRgba('--quaternary'),
-        hover: toRgba('--hover'),
-        click: toRgba('--click'),
-        icon: toRgba('--icon'),
-        outline: toRgba('--outline'),
-        divider: toRgba('--divider'),
-        
+        primary: 'rgba(var(--primary), <alpha-value>)',
+        secondary: 'rgba(var(--secondary), <alpha-value>)',
+        tertiary: 'rgba(var(--tertiary), <alpha-value>)',
+        quaternary: 'rgba(var(--quaternary), <alpha-value>)',
+        hover: 'rgba(var(--hover), <alpha-value>)',
+        click: 'rgba(var(--click), <alpha-value>)',
+        icon: 'rgba(var(--icon), <alpha-value>)',
+        outline: 'rgba(var(--outline), <alpha-value>)',
+        divider: 'rgba(var(--divider), <alpha-value>)',
       },
-      backgroundColor:{
-        light: toRgba('--bg-light'),
-        dark: toRgba('--bg-dark'),
-        disabled: toRgba('--bg-disabled'),
+      backgroundColor: {
+        light: 'rgba(var(--bg-light), <alpha-value>)',
+        dark: 'rgba(var(--bg-dark), <alpha-value>)',
+        disabled: 'rgba(var(--bg-disabled), <alpha-value>)',
       },
       textColor: {
-        gray : {
-        'text-primary': toRgba('--text-primary'),
-        'text-secondary': toRgba('--text-secondary'),
-        'text-tertiary': toRgba('--text-tertiary'),
-        'text-disabled': toRgba('--text-disabled'),
+        gray: {
+          primary: 'rgba(var(--text-primary), <alpha-value>)',
+          secondary: 'rgba(var(--text-secondary), <alpha-value>)',
+          tertiary: 'rgba(var(--text-tertiary), <alpha-value>)',
         },
-        disabled: toRgba('--text-disabled'),
+        disabled: 'rgba(var(--text-disabled), <alpha-value>)',
       },
       boxShadow: {
         sm: 'var(--shadow-sm)',
@@ -93,7 +86,6 @@ module.exports = {
         md: 'var(--border-radius-md)',
         lg: 'var(--border-radius-lg)',
       },
-     
     },
   },
   plugins: [],
